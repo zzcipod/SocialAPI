@@ -33,8 +33,12 @@ const UserSchema = new Schema(
     toJSON: {
       getters: true,
     },
-  }
+    id:false,
+  },
 );
+
+userSchema.getters("friendCount").get(function(){
+  '${this.friends.length}'});
 
 const User = model('User', userSchema);
 
