@@ -16,12 +16,18 @@ const UserSchema = new Schema(
       required: true,
       max_length: 50,
     },
-    github: {
-      type: String,
-      required: true,
-      max_length: 50,
-    },
-    assignments: [assignmentSchema],
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+          ref: 'Thought',
+      },
+    ],
+    friends: [
+      {
+          type: Schema.Types.ObjectId,
+          ref: 'User',
+        },
+  ],
   },
   {
     toJSON: {
