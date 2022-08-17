@@ -43,11 +43,11 @@ module.exports = {
   },
   // Delete a course
   deleteThought(req, res) {
-    Course.findOneAndDelete({ _id: req.params.courseId })
+    Thought.findOneAndDelete({ _id: req.params.courseId })
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: 'No thought with that ID' })
-          : Student.deleteMany({ _id: { $in: thought.user } })
+          : User.deleteMany({ _id: { $in: thought.user } })
       )
       .then(() => res.json({ message: 'User and thoughts deleted!' }))
       .catch((err) => res.status(500).json(err));
