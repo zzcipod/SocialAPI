@@ -1,13 +1,13 @@
 const { Schema, Types } = require('mongoose');
-const formatDate = require("../utils/format.data.js");
+const formatDate = require("../utils/data.js");
 
 const reactionSchema = new Schema(
   {
-    ReactionId: {
-      type: Schema.Typess.ObjectId,
+    reactionId: {
+      type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
     },
-    ReactionBody: {
+    reactionBody: {
       type: String,
       required: true,
       maxlength: 50,
@@ -22,7 +22,7 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get:(timestamp) => formatData(timestamp)
+      get:(timestamp) => formatDate(timestamp)
     },
   },
   {

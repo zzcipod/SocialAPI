@@ -4,7 +4,8 @@ const {
   getSingleUser,
   createUser,
   deleteUser,
-  updateUser,
+  addFriend,
+  //updateUser,
   // removeAssignment,
   // getUsers,
   // createUser,
@@ -14,10 +15,10 @@ const {
 router.route('/').get(getUsers).post(createUser);
 
 // /api/user/:userId
-router.route('/:userId').get(getSingleUser).put(updateUser).delete(deleteUser);
+router.route('/:userId').get(getSingleUser).delete(deleteUser);
 
 // /api/users/:userId/userid
-router.route('/:userId/friends/:friendId').post(addFriend).delete(removeFriend);
+router.route('/:userId/friends/:friendId').get(addFriend);
 
 // /api/students/:studentId/assignments/:assignmentId
 // router.route('/:studentId/assignments/:assignmentId').delete(removeAssignment);
